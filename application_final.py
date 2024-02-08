@@ -28,6 +28,9 @@ resource_fields = {
     'summary': fields.String
 }
 
+class Home(Resource):
+    def get(self):
+        return "Welcome"
 
 class ToDoList(Resource):
     def get(self):
@@ -76,6 +79,7 @@ class ToDo(Resource):
 
 api.add_resource(ToDo, '/todos/<int:todo_id>')
 api.add_resource(ToDoList, '/todos')
+api.add_resource(Home, '/')
 
 if __name__ == '__main__':
     application.run(debug=True)
